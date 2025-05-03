@@ -28,6 +28,7 @@ public class DDTest {
 		
 	}
 	//delete user by name
+	//delete user by name2
 	@Test(priority=2,dataProvider="UserNames",dataProviderClass =DataProviders.class )
 	public void testDeleteUserByName(String userName) {
 		
