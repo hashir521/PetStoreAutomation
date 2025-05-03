@@ -8,7 +8,7 @@
   <test thread-count="5" name="PetTest">
     <classes>
       <class name="api.test.UserTests"/>
-      <class name="api.test.DDTest"/> 
+       <class name="api.test.DDTest"/>
     </classes>
-  </test> <!-- PetTest -->
+</test> <!-- PetTest -->
 </suite> <!-- PetSuite -->
