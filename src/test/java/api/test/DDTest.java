@@ -27,7 +27,7 @@ public class DDTest {
 		Assert.assertEquals(response.getStatusCode(), 200);
 		
 	}
-	
+	//delete user by name
 	@Test(priority=2,dataProvider="UserNames",dataProviderClass =DataProviders.class )
 	public void testDeleteUserByName(String userName) {
 		
