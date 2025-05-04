@@ -46,6 +46,8 @@ public class UserEndPoints {
 	}
 
 	//delete user
+	//delete user
+
 	public static Response deleteUser(String userName){
 		
 		Response response =given()

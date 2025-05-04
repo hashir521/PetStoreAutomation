@@ -3,12 +3,7 @@ pipeline {
 
     tools {
         maven 'mymaven'     // Must match the name you gave in Jenkins Global Tool Config
-        jdk 'jdk-21'        // Must match the configured JDK name in Jenkins
-    }
-
-    environment {
-        // You can add custom environment variables here if needed
-       // ALLURE_RESULTS = 'target/allure-results'
+        jdk 'myjava'        // Must match the configured JDK name in Jenkins
     }
 
     stages {
