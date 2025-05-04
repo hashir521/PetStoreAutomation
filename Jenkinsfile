@@ -22,6 +22,7 @@ pipeline {
                 stage('Test') {
                     steps {
                         bat 'mvn test'
+                        junit 'target/surefire-reports/*.xml'  // Parses test results
                     }
                 }
 
