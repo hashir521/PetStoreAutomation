@@ -7,30 +7,42 @@ pipeline {
     }
 
     stages {
+        stage('Workspace Cleanup') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Checkout') {
             steps {
-                checkout scm  // Clones your Git repository
+                checkout scm
             }
         }
 
         stage('Build') {
-                    steps {
-                        bat 'mvn clean install'
-                    }
-                }
+            steps {
+                bat 'mvn clean install'
+            }
+        }
 
-                stage('Test') {
-                    steps {
-                        bat 'mvn test'
-                        junit 'target/surefire-reports/*.xml'  // Parses test results
-                    }
-                }
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+                junit 'target/surefire-reports/*.xml'
+            }
+        }
 
-                stage('Allure Report') {
-                    steps {
-                        allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
-                    }
-                }
+        stage('Allure Report') {
+            steps {
+                // Clean old allure results (especially helpful on Windows)
+                bat 'if exist target\\allure-results rmdir /s /q target\\allure-results'
+
+                // Optional: regenerate results (if needed)
+                // bat 'mvn allure:report'
+
+                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+            }
+        }
     }
 
     post {
@@ -44,6 +56,10 @@ pipeline {
 
         failure {
             echo 'Build failed. Please check logs.'
+        }
+
+        unstable {
+            echo 'Build marked as UNSTABLE — possible test/report issues.'
         }
     }
 }
