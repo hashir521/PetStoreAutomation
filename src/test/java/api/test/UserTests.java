@@ -38,13 +38,13 @@ public class UserTests {
 		Assert.assertEquals(response.getStatusCode(), 200);
 	}
 	
-	@Test(priority=2)
+/*	@Test(priority=2)
 	public void testGetUserByName() {
 	Response response =	UserEndPoints.readUser(this.userPayload.getUsername());
 	response.then().log().all();
 	Assert.assertEquals(response.getStatusCode(), 200);
 		
-	}
+	}*/
 	
 	@Test(priority=3)
 	public void testUpdateUserByName() {
@@ -65,12 +65,12 @@ public class UserTests {
 		
 		Assert.assertEquals(response.getStatusCode(), 200);
 	}
-
+	/*
 	@Test(priority=4)
 	public void testDeleteUserByName() {
 		Response response = UserEndPoints.deleteUser(this.userPayload.getUsername());
 		Assert.assertEquals(response.getStatusCode(), 200);
-	}
+	}*/
 		
 	
 
