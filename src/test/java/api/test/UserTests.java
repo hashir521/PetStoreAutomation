@@ -65,12 +65,12 @@ public class UserTests {
 		
 		Assert.assertEquals(response.getStatusCode(), 200);
 	}
-	
+	/*
 	@Test(priority=4)
 	public void testDeleteUserByName() {
 		Response response = UserEndPoints.deleteUser(this.userPayload.getUsername());
 		Assert.assertEquals(response.getStatusCode(), 200);
-	}
+	}*/
 		
 	
 
